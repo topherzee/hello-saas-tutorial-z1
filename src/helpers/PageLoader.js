@@ -1,6 +1,6 @@
 import React from "react";
 import config from "../magnolia.config";
-import { getAPIBase, getLanguages } from "./AppHelpers";
+import { getAPIBase } from "./AppHelpers";
 
 import { EditablePage } from "@magnolia/react-editor";
 import { EditorContextHelper } from "@magnolia/react-editor";
@@ -14,20 +14,17 @@ class PageLoader extends React.Component {
 
     const apiBase = getAPIBase();
     console.log("apiBase:", apiBase);
-    const languages = getLanguages();
+
     const spaRootNodePath = process.env.REACT_APP_MGNL_APP_BASE;
     const magnoliaContext = EditorContextHelper.getMagnoliaContext(
       window.location.href,
-      spaRootNodePath,
-      languages
+      spaRootNodePath
     );
     console.log("magnoliaContext:", magnoliaContext);
     const searchParams = new URLSearchParams({
       subid_token: process.env.REACT_APP_MGNL_SUB_ID,
     });
-    if (magnoliaContext.searchParams["lang"]) {
-      searchParams.set("lang", magnoliaContext.searchParams["lang"]);
-    }
+
     const relativePageURL = `${magnoliaContext.nodePath}?${searchParams}`;
 
     const fullContentURL = `${apiBase}${process.env.REACT_APP_MGNL_API_PAGES}${relativePageURL}`;

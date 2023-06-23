@@ -4,4 +4,4 @@ form:
     text:
       label: Item Text
       $type: textField
-      i18n: true
+

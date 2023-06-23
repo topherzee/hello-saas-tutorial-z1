@@ -6,19 +6,18 @@ datasource:
 model:
   nodeType: activity
   properties:
+  
     name:
       label: Name
-      i18n: true
       required: true
+
     description:
       type: richText
       label: Description
-      i18n: true
-      required: false
+
     testimonial:
       type: richText
       label: Testimonial
-      i18n: true
-      required: false
+
 
 

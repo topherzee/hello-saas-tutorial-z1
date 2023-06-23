@@ -4,4 +4,3 @@ form:
     title:
       label: Title
       $type: textField
-      i18n: true
