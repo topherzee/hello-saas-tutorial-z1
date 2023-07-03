@@ -2,22 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { getAPIBase } from "../helpers/AppHelpers";
 
-function renderLanguages() {
-  // Languages not yet supported on SaaS.
-  // const currentLanguage = getCurrentLanguage();
-  // return (
-  //   <div className="languages">
-  //     {getLanguages().map((lang) => (
-  //       <span key={`lang-${lang}`} data-active={currentLanguage === lang} onClick={() => changeLanguage(lang)}>
-  //         {lang}
-  //       </span>
-  //     ))}
-  //   </div>
-  // );
-
-  return null;
-}
-
 function Navigation() {
   const [navItems, setNavItems] = React.useState([]);
 
@@ -71,7 +55,6 @@ function Navigation() {
           return null;
         }
       })}
-      {renderLanguages()}
     </nav>
   ) : (
     <div />
