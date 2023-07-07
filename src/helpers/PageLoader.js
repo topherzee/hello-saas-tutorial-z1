@@ -21,9 +21,7 @@ class PageLoader extends React.Component {
       spaRootNodePath
     );
     console.log("magnoliaContext:", magnoliaContext);
-    const searchParams = new URLSearchParams({
-      subid_token: process.env.REACT_APP_MGNL_SUB_ID,
-    });
+    const searchParams = new URLSearchParams({});
 
     const relativePageURL = `${magnoliaContext.nodePath}?${searchParams}`;
 
