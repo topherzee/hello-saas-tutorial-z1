@@ -13,13 +13,11 @@ function Navigation() {
         apiBase +
         process.env.REACT_APP_MGNL_API_NAV +
         process.env.REACT_APP_MGNL_APP_BASE;
-      const url = `${baseUrl}?subid_token=${process.env.REACT_APP_MGNL_SUB_ID}`;
-      const subUrl = `${baseUrl}@nodes?subid_token=${process.env.REACT_APP_MGNL_SUB_ID}`;
 
-      const response = await fetch(url);
+      const response = await fetch(baseUrl);
       const data = await response.json();
 
-      const subRes = await fetch(subUrl);
+      const subRes = await fetch(`${baseUrl}@nodes`);
       const childNodesData = await subRes.json();
       // JCR returns an array, but Norsu returns object with more info
       const childNodes = childNodesData.results
