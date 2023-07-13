@@ -13,10 +13,19 @@ function Navigation() {
         apiBase +
         process.env.REACT_APP_MGNL_API_NAV +
         process.env.REACT_APP_MGNL_APP_BASE;
-
-      const response = await fetch(baseUrl);
-      const data = await response.json();
-
+      let response;
+      let data;
+      try {
+        response = await fetch(baseUrl);
+        data = await response.json();
+      } catch (error) {
+        console.log(`Problem with navigation fetch.`);
+        console.log(
+          `Please check that the page exists (${process.env.REACT_APP_MGNL_APP_BASE}), and the url is correct:
+        ${baseUrl}`
+        );
+        return null;
+      }
       const subRes = await fetch(`${baseUrl}@nodes`);
       const childNodesData = await subRes.json();
       // JCR returns an array, but Norsu returns object with more info

@@ -27,9 +27,22 @@ class PageLoader extends React.Component {
     const relativePageURL = `${magnoliaContext.nodePath}?${searchParams}`;
 
     const fullContentURL = `${apiBase}${process.env.REACT_APP_MGNL_API_PAGES}${relativePageURL}`;
-    const pageResponse = await fetch(fullContentURL);
-    const pageJson = await pageResponse.json();
-    console.log("page content:", pageJson);
+
+    let pageResponse;
+    let pageJson;
+
+    try {
+      pageResponse = await fetch(fullContentURL);
+      pageJson = await pageResponse.json();
+      console.log("page content:", pageJson);
+    } catch (error) {
+      console.log(`Problem with page fetch.`);
+      console.log(
+        `Please check that the page exists (${relativePageURL}), and the url is correct:
+        ${fullContentURL}`
+      );
+      return null;
+    }
 
     const templateId = pageJson["mgnl:template"];
     console.log("templateId:", templateId);
@@ -77,8 +90,6 @@ class PageLoader extends React.Component {
   render() {
     if (this.state.init) {
       console.log("config:", config);
-      //const isDevMode = process.env.NODE_ENV === 'development';
-      //console.log("n:" + process.env.NODE_ENV)
 
       return (
         <EditablePage
@@ -88,7 +99,7 @@ class PageLoader extends React.Component {
         ></EditablePage>
       );
     } else {
-      return <p>NO PAGE.</p>;
+      return <p>Loading...</p>;
     }
   }
 }
