@@ -12,15 +12,16 @@ class PageLoader extends React.Component {
     // Bail out if already loaded content.
     if (!force && this.state.pathname === window.location.pathname) return;
 
-    const apiBase = getAPIBase();
-    console.log("apiBase:", apiBase);
-
     const spaRootNodePath = process.env.REACT_APP_MGNL_APP_BASE;
     const magnoliaContext = EditorContextHelper.getMagnoliaContext(
       window.location.href,
       spaRootNodePath
     );
     console.log("magnoliaContext:", magnoliaContext);
+
+    const apiBase = getAPIBase(magnoliaContext.isMagnolia);
+    console.log("apiBase:", apiBase);
+
     const searchParams = new URLSearchParams({});
 
     const relativePageURL = `${magnoliaContext.nodePath}?${searchParams}`;

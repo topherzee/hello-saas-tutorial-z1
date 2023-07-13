@@ -1,12 +1,11 @@
-export function getAPIBase() {
+export function getAPIBase(isPreview) {
   let M;
-  if (Boolean(process.env.REACT_APP_MGNL_IS_PREVIEW)) {
-    M = process.env.REACT_APP_MGNL_BASE_AUTHOR;
+  if (isPreview) {
+    M = process.env.REACT_APP_MGNL_HOST_PREVIEW;
   } else {
-    M = process.env.REACT_APP_MGNL_BASE_PUBLIC;
+    M = process.env.REACT_APP_MGNL_HOST_PUBLISHED;
   }
-  let API_BASE = process.env.REACT_APP_MGNL_HOST + M;
-  return API_BASE;
+  return M;
 }
 
 export function getRouterBasename() {
