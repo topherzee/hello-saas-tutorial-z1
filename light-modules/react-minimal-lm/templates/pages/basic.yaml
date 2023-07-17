@@ -1,6 +1,6 @@
 title: 'React: Basic'
 
-baseUrl: https://hello-saas-development.netlify.app/
+baseUrl: http://localhost:3000
 routeTemplate: '/{language}{{@path}}'
 
 dialog: spa-lm:pages/basic
