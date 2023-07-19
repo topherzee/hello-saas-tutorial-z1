@@ -3,6 +3,7 @@ downloads/
 build/
 
 .config-env
+.env.local
 
 /**/webresources/build/
 /**/angular-minimal-lm/webresources/

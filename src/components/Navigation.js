@@ -2,6 +2,8 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { getAPIBase } from "../helpers/AppHelpers";
 
+import { magnoliaFetch } from "../helpers/Api";
+
 function Navigation() {
   const [navItems, setNavItems] = React.useState([]);
 
@@ -16,7 +18,7 @@ function Navigation() {
       let response;
       let data;
       try {
-        response = await fetch(baseUrl);
+        response = await magnoliaFetch(baseUrl);
         data = await response.json();
       } catch (error) {
         console.log(`Problem with navigation fetch.`);
@@ -26,7 +28,7 @@ function Navigation() {
         );
         return null;
       }
-      const subRes = await fetch(`${baseUrl}@nodes`);
+      const subRes = await magnoliaFetch(`${baseUrl}@nodes`);
       const childNodesData = await subRes.json();
       // JCR returns an array, but Norsu returns object with more info
       const childNodes = childNodesData.results
