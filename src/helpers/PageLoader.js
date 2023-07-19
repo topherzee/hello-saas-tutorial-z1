@@ -5,6 +5,8 @@ import { getAPIBase } from "./AppHelpers";
 import { EditablePage } from "@magnolia/react-editor";
 import { EditorContextHelper } from "@magnolia/react-editor";
 
+import { magnoliaFetch } from "./Api";
+
 class PageLoader extends React.Component {
   state = {};
 
@@ -32,7 +34,8 @@ class PageLoader extends React.Component {
     let pageJson;
 
     try {
-      pageResponse = await fetch(fullContentURL);
+      pageResponse = await magnoliaFetch(fullContentURL);
+      // pageResponse = await fetch(fullContentURL);
       pageJson = await pageResponse.json();
       console.log("page content:", pageJson);
     } catch (error) {
@@ -41,6 +44,8 @@ class PageLoader extends React.Component {
         `Please check that the page exists (${relativePageURL}), and the url is correct:
         ${fullContentURL}`
       );
+      console.log(error);
+
       return null;
     }
 
@@ -50,7 +55,7 @@ class PageLoader extends React.Component {
     let templateJson = null;
     if (magnoliaContext.isMagnolia) {
       const templateAnnotationURL = `${apiBase}${process.env.REACT_APP_MGNL_API_ANNOTATIONS}${relativePageURL}`;
-      const templateResponse = await fetch(templateAnnotationURL);
+      const templateResponse = await magnoliaFetch(templateAnnotationURL);
       templateJson = await templateResponse.json();
       console.log("annotations:", templateJson);
     }
