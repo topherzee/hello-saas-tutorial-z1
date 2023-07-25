@@ -1,0 +1,49 @@
+{
+  "@metadata": {
+    "name": "activities",
+    "path": "/activities"
+  },
+  "@content": {
+    "name": "activities"
+  },
+  "@nodes": [
+    {
+      "@metadata": {
+        "name": "Sports",
+	    "path": null
+      },
+      "@content": {
+        "name": "Sports",
+        "mgnl:type": "folder"
+      },
+      "@nodes": [
+        {
+          "@metadata": {
+            "name": "Biking",
+            "path": null
+          },
+          "@content": {
+            "name": "Biking",
+            "mgnl:type": "activity",
+            "description": "<p>Go for a two hour bike ride.</p>\n",
+            "testimonial": "<p>It&#39;s great to get out and discover things a little further from home.</p>\n"
+          },
+          "@nodes": []
+        },
+        {
+          "@metadata": {
+            "name": "Swimming",
+            "path": null
+          },
+          "@content": {
+            "name": "Swimming",
+            "mgnl:type": "activity",
+            "description": "<p>Swim laps at the pool.</p>\n",
+            "testimonial": "<p>Refreshing and energizing.</p>\n"
+          },
+          "@nodes": []
+        }
+      ]
+    }
+  ]
+}

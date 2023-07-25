@@ -1,0 +1,133 @@
+{
+  "@metadata": {
+    "name": "website",
+    "path": "/website"
+  },
+  "@content": {
+    "name": "website"
+  },
+  "@nodes": [
+    {
+      "@metadata": {
+        "name": "react-minimal",
+	    "path": null
+      },
+      "@content": {
+        "main": {
+          "mgnl:type": "mgnl:area",
+          "components": [
+            {
+              "image": "saas:f99766dc-8cfa-4f09-90e1-e92151debcfa",
+              "mgnl:type": "mgnl:component",
+              "mgnl:template": "spa-lm:components/image"
+            },
+            {
+              "richText": "<p>Get out your paints, plug in your soldering iron, or fire up your laptop.</p>\n\n<p><strong>It&#39;s time to get started.</strong></p>\n",
+              "mgnl:type": "mgnl:component",
+              "mgnl:template": "spa-lm:components/paragraph"
+            }
+          ]
+        },
+        "name": "react minimal",
+        "title": "Let's create something amazing",
+        "extras": {
+          "mgnl:type": "mgnl:area",
+          "components": [
+            {
+              "text": "In this issue",
+              "title": "In this issue",
+              "mgnl:type": "mgnl:component",
+              "mgnl:template": "spa-lm:components/headline"
+            },
+            {
+              "items": {
+                "mgnl:type": "mgnl:area",
+                "components": [
+                  {
+                    "text": "360 degree cameras - wow!",
+                    "mgnl:type": "mgnl:component",
+                    "mgnl:template": "spa-lm:components/listItem"
+                  },
+                  {
+                    "text": "Which ducttape is the strongest",
+                    "mgnl:type": "mgnl:component",
+                    "mgnl:template": "spa-lm:components/listItem"
+                  },
+                  {
+                    "text": "Choosing a tool that works for the whole team",
+                    "mgnl:type": "mgnl:component",
+                    "mgnl:template": "spa-lm:components/listItem"
+                  }
+                ]
+              },
+              "mgnl:type": "mgnl:component",
+              "mgnl:template": "spa-lm:components/list"
+            }
+          ]
+        },
+        "mgnl:type": "mgnl:page",
+        "mgnl:template": "react-minimal-lm:pages/basic"
+      },
+      "@nodes": [
+        {
+          "@metadata": {
+            "name": "contact",
+            "path": null
+          },
+          "@content": {
+            "main": {
+              "mgnl:type": "mgnl:area",
+              "components": [
+                {
+                  "text": "Contact Sales",
+                  "title": "Sales",
+                  "mgnl:type": "mgnl:component",
+                  "mgnl:template": "spa-lm:components/headline"
+                },
+                {
+                  "mgnl:type": "mgnl:component",
+                  "expanderItems": {
+                    "mgnl:type": "mgnl:area",
+                    "components": [
+                      {
+                        "richText": "<p>Reach out to us anytime, 24/7.</p>\n\n<p><em>Really. Go ahead, just call us! <strong>Please?</strong></em></p>\n\n<p>+41 12 34 567 89 00</p>\n",
+                        "mgnl:type": "mgnl:component",
+                        "mgnl:template": "spa-lm:components/paragraph"
+                      }
+                    ]
+                  },
+                  "mgnl:template": "spa-lm:components/expander"
+                },
+                {
+                  "text": "Contact Support",
+                  "title": "Support",
+                  "mgnl:type": "mgnl:component",
+                  "mgnl:template": "spa-lm:components/headline"
+                },
+                {
+                  "mgnl:type": "mgnl:component",
+                  "expanderItems": {
+                    "mgnl:type": "mgnl:area",
+                    "components": [
+                      {
+                        "richText": "<p>Available from 3:00 - 3:25.</p>\n\n<p>Every 2<strong>nd Tuesday</strong> of the month.</p>\n\n<p>+41 98 765 43 21 00</p>\n",
+                        "mgnl:type": "mgnl:component",
+                        "mgnl:template": "spa-lm:components/paragraph"
+                      }
+                    ]
+                  },
+                  "mgnl:template": "spa-lm:components/expander"
+                }
+              ]
+            },
+            "name": "contact",
+            "title": "Get in touch",
+            "mgnl:type": "mgnl:page",
+            "mgnl:template": "react-minimal-lm:pages/contact"
+          },
+          "@nodes": []
+        }
+      ]
+    }
+  ]
+}
