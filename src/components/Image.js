@@ -1,7 +1,8 @@
 import React from "react";
 
-const Image = (props) => (
-  <img className="Image" src={props.image["@link"]} alt="Etiam Purus" />
-);
+const Image = (props) => {
+  let link = props.image && props.image["@link"];
+  return <>{link && <img className="Image" src={link} alt="Etiam Purus" />}</>;
+};
 
 export default Image;
