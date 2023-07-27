@@ -1,16 +1,16 @@
 {
   "@metadata": {
     "name": "website",
+    "uuid": "90a78fc1-348c-478a-9e37-b0051c9923ad",
     "path": "/website"
   },
-  "@content": {
-    "name": "website"
-  },
+  "@content": {},
   "@nodes": [
     {
       "@metadata": {
         "name": "react-minimal",
-	    "path": null
+        "uuid": "cee947ab-2921-4b25-bad8-fa3581a1c377",
+        "path": null
       },
       "@content": {
         "main": {
@@ -72,6 +72,7 @@
         {
           "@metadata": {
             "name": "contact",
+            "uuid": "906058bb-58f0-4b2c-be8f-860342b36558",
             "path": null
           },
           "@content": {

@@ -1,16 +1,16 @@
 {
   "@metadata": {
     "name": "activities",
+    "uuid": "b65902dc-56db-4202-88d4-2f748fe85436",
     "path": "/activities"
   },
-  "@content": {
-    "name": "activities"
-  },
+  "@content": {},
   "@nodes": [
     {
       "@metadata": {
         "name": "Sports",
-	    "path": null
+        "uuid": "ff463d9f-7aa1-4aa7-8884-813f09477063",
+        "path": null
       },
       "@content": {
         "name": "Sports",
@@ -20,6 +20,7 @@
         {
           "@metadata": {
             "name": "Biking",
+            "uuid": "05e7c1c1-544b-4c66-9530-b147d9eec7ae",
             "path": null
           },
           "@content": {
@@ -33,6 +34,7 @@
         {
           "@metadata": {
             "name": "Swimming",
+            "uuid": "22597908-2c70-4600-a8e2-42107339cf5e",
             "path": null
           },
           "@content": {
