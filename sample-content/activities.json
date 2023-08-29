@@ -1,51 +1,43 @@
 {
-  "@metadata": {
-    "name": "activities",
-    "uuid": "b65902dc-56db-4202-88d4-2f748fe85436",
-    "path": "/activities"
+  "@metadata" : {
+    "uuid" : "b65902dc-56db-4202-88d4-2f748fe85436",
+    "name" : "activities",
+    "path" : "/activities"
   },
-  "@content": {},
-  "@nodes": [
-    {
-      "@metadata": {
-        "name": "Sports",
-        "uuid": "ff463d9f-7aa1-4aa7-8884-813f09477063",
-        "path": null
+  "@content" : { },
+  "@nodes" : [ {
+    "@metadata" : {
+      "uuid" : "ff463d9f-7aa1-4aa7-8884-813f09477063",
+      "name" : "Sports"
+    },
+    "@content" : {
+      "name" : "Sports",
+      "mgnl:type" : "folder"
+    },
+    "@nodes" : [ {
+      "@metadata" : {
+        "uuid" : "05e7c1c1-544b-4c66-9530-b147d9eec7ae",
+        "name" : "Biking"
       },
-      "@content": {
-        "name": "Sports",
-        "mgnl:type": "folder"
+      "@content" : {
+        "name" : "Biking",
+        "mgnl:type" : "activity",
+        "description" : "<p>Go for a two hour bike ride.</p>\n",
+        "testimonial" : "<p>It&#39;s great to get out and discover things a little further from home.</p>\n"
       },
-      "@nodes": [
-        {
-          "@metadata": {
-            "name": "Biking",
-            "uuid": "05e7c1c1-544b-4c66-9530-b147d9eec7ae",
-            "path": null
-          },
-          "@content": {
-            "name": "Biking",
-            "mgnl:type": "activity",
-            "description": "<p>Go for a two hour bike ride.</p>\n",
-            "testimonial": "<p>It&#39;s great to get out and discover things a little further from home.</p>\n"
-          },
-          "@nodes": []
-        },
-        {
-          "@metadata": {
-            "name": "Swimming",
-            "uuid": "22597908-2c70-4600-a8e2-42107339cf5e",
-            "path": null
-          },
-          "@content": {
-            "name": "Swimming",
-            "mgnl:type": "activity",
-            "description": "<p>Swim laps at the pool.</p>\n",
-            "testimonial": "<p>Refreshing and energizing.</p>\n"
-          },
-          "@nodes": []
-        }
-      ]
-    }
-  ]
+      "@nodes" : [ ]
+    }, {
+      "@metadata" : {
+        "uuid" : "22597908-2c70-4600-a8e2-42107339cf5e",
+        "name" : "Swimming"
+      },
+      "@content" : {
+        "name" : "Swimming",
+        "mgnl:type" : "activity",
+        "description" : "<p>Swim laps at the pool.</p>\n",
+        "testimonial" : "<p>Refreshing and energizing.</p>\n"
+      },
+      "@nodes" : [ ]
+    } ]
+  } ]
 }
