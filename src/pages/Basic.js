@@ -1,12 +1,10 @@
 import React from "react";
 import { EditableArea } from "@magnolia/react-editor";
 
-const Basic = (props) => {
-  const { main, extras, title } = props;
-
+const Basic = ({ main, extras, title, metadata }) => {
   return (
     <div className="Basic">
-      <h1>{title || props.metadata["@name"]}</h1>
+      <h1>{title || metadata["@name"]}</h1>
 
       <main>{main && <EditableArea className="Area" content={main} />}</main>
 
