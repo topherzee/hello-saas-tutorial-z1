@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import config from "../magnolia.config";
 import { getAPIBase } from "./AppHelpers";
 
@@ -7,12 +7,27 @@ import { EditorContextHelper } from "@magnolia/react-editor";
 
 import { magnoliaFetch } from "./Api";
 
-class PageLoader extends React.Component {
-  state = {};
+const PageLoader = () => {
+  const [pageState, setPageState] = useState({
+    loading: false,
+    content: null,
+    templateAnnotations: null,
+    pathname: null,
+  });
 
-  loadPage = async (force) => {
+  const setLoading = (isLoading) => {
+    setPageState(preState => {
+      return { ...preState, loading: isLoading };
+    })
+  }
+
+  const loadPage = async (force) => {
     // Bail out if already loaded content.
-    if (!force && this.state.pathname === window.location.pathname) return;
+    setLoading(true);
+    if (!force && pageState.pathname === window.location.pathname) {
+      setLoading(false);
+      return;
+    };
 
     const spaRootNodePath = process.env.REACT_APP_MGNL_APP_BASE;
     const magnoliaContext = EditorContextHelper.getMagnoliaContext(
@@ -48,7 +63,6 @@ class PageLoader extends React.Component {
 
       return null;
     }
-
     const templateId = pageJson["mgnl:template"];
     console.log("templateId:", templateId);
 
@@ -60,15 +74,12 @@ class PageLoader extends React.Component {
       console.log("annotations:", templateJson);
     }
 
-    this.setState({
-      init: true,
-      content: pageJson,
-      templateAnnotations: templateJson,
-      pathname: window.location.pathname,
+    setPageState((preState) => {
+      return { ...preState, loading: false, content: pageJson, templateAnnotations: templateJson, pathname: window.location.pathname };
     });
-  };
+  }
 
-  componentDidMount() {
+  useEffect(() => {
     const handler = (event) => {
       try {
         if (typeof event.data !== "string") {
@@ -76,7 +87,7 @@ class PageLoader extends React.Component {
         }
         const message = JSON.parse(event.data);
         if (message.action === "refresh") {
-          this.loadPage(true);
+          loadPage(true);
         }
       } catch (e) {
         console.error("Failed to parse " + event.data);
@@ -85,28 +96,22 @@ class PageLoader extends React.Component {
 
     window.addEventListener("message", handler);
 
-    this.loadPage(false);
+    loadPage(false);
+  }, [])
+
+  if (pageState.loading) {
+    return <p>Loading...</p>;
   }
 
-  componentDidUpdate() {
-    this.loadPage();
-  }
+  console.log("config:", config);
+  return pageState.content && (
+    <EditablePage
+      templateAnnotations={pageState.templateAnnotations || {}}
+      content={pageState.content}
+      config={config}
+    ></EditablePage>
+  );
 
-  render() {
-    if (this.state.init) {
-      console.log("config:", config);
-
-      return (
-        <EditablePage
-          templateAnnotations={this.state.templateAnnotations || {}}
-          content={this.state.content}
-          config={config}
-        ></EditablePage>
-      );
-    } else {
-      return <p>Loading...</p>;
-    }
-  }
 }
 
 export default PageLoader;

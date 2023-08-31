@@ -1,14 +1,14 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { getAPIBase } from "../helpers/AppHelpers";
 
 import { magnoliaFetch } from "../helpers/Api";
 
-function Navigation() {
-  const [navItems, setNavItems] = React.useState([]);
+const Navigation = () => {
+  const [navItems, setNavItems] = useState([]);
 
-  React.useEffect(() => {
-    async function fetchNav() {
+  useEffect(() => {
+    const fetchNav = async () => {
       const apiBase = getAPIBase();
 
       const baseUrl =
@@ -35,14 +35,14 @@ function Navigation() {
         ? childNodesData.results
         : childNodesData;
       setNavItems([data, ...childNodes]);
-    }
+    };
 
     if (navItems.length < 1) {
       fetchNav();
     }
   }, [navItems]);
 
-  return navItems ? (
+  return (
     <nav className="Navigation">
       {navItems.map((item) => {
         // console.log("navItems", navItems);
@@ -65,9 +65,7 @@ function Navigation() {
         }
       })}
     </nav>
-  ) : (
-    <div />
   );
-}
+};
 
 export default Navigation;

@@ -1,8 +1,7 @@
 import React from "react";
 import { EditableArea } from "@magnolia/react-editor";
 
-const Contact = (props) => {
-  const { main, title } = props;
+const Contact = ({ main, title }) => {
   const boxStyle = {
     background: "#eee",
     padding: "20px",
