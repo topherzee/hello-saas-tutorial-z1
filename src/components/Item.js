@@ -1,3 +1,5 @@
-const Item = ({ text }) => <li className="Item">{text}</li>;
+import React from "react";
+
+const Item = (props) => <li className="Item">{props.text}</li>;
 
 export default Item;
